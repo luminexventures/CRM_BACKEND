@@ -1,0 +1,8 @@
+{
+    "_comment": "Configuration file for {studentcrm} backend",
+    "watch_directory": "C:/watchdog",
+    "dependencies": {
+        "_comment": "List of required Python packages and versions"
+        
+    }
+}
