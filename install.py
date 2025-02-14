@@ -1,8 +1,22 @@
 import sys
 import subprocess
 import pkg_resources
+import os
 from pkg_resources import parse_version
 import json
+
+def create_watchdog_directory():
+    """Create C:/watchdog directory if it doesn't exist"""
+    directory = "C:/watchdog"
+    try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+            print(f"Created directory: {directory}")
+        else:
+            print(f"Directory already exists: {directory}")
+    except Exception as e:
+        print(f"Error creating directory {directory}: {e}")
+        sys.exit(1)
 
 def check_python_version():
     """Verify Python version is 3.12.2 or later"""
@@ -66,6 +80,9 @@ def verify_installations(packages):
 
 def main():
     print("Starting installation process...\n")
+
+    # Creating watchdog environment
+    create_watchdog_directory()
     
     # Check Python version
     check_python_version()
